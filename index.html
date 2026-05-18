@@ -80,6 +80,58 @@
         .zh { display: none; }
         body.zh-mode .en { display: none; }
         body.zh-mode .zh { display: block; }
+
+        /* --- Decorative Background Elements --- */
+        body::before, body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 180px;
+            pointer-events: none;
+            opacity: 0.15;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        
+        /* Left side geometric lines */
+        body::before {
+            left: 0;
+            background-image: linear-gradient(180deg, #cfd9df 0%, #e2ebf0 100%);
+            mask-image: radial-gradient(circle at 20% 50%, black 0%, transparent 70%);
+        }
+        
+        /* Right side dotted pattern */
+        body::after {
+            right: 0;
+            background-image: radial-gradient(#b0c4de 2px, transparent 2px);
+            background-size: 18px 18px;
+            mask-image: linear-gradient(180deg, black 0%, transparent 90%);
+        }
+        
+        /* --- Hero Glow Effect --- */
+        .hero {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: -40%;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.8), transparent 70%);
+            transform: translateX(-50%);
+            pointer-events: none;
+        }
+        
+        /* --- Card Enhancement --- */
+        section {
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255,255,255,0.6);
+        }
     </style>
 
     <script>
@@ -112,8 +164,8 @@
 </div>
 
 <div class="hero zh">
-    <h1>怡暉國際有限公司</h1>
-    <p>台灣投資與企業管理顧問公司</p>
+    <h1>益暉國際股份有限公司</h1>
+    <p>提供投資規劃與企業管理服務的台灣顧問公司</p>
 </div>
 
 <!-- ENGLISH CONTENT -->

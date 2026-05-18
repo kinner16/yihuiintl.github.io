@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>YI HUI INTERNATIONAL CO., LTD.</title>
+
     <style>
         body {
             margin: 0;
@@ -10,6 +11,25 @@
             background: #f7f7f7;
             color: #333;
             line-height: 1.7;
+        }
+
+        /* Language Switcher */
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+        .lang-switch button {
+            padding: 6px 12px;
+            margin-left: 6px;
+            border: none;
+            border-radius: 6px;
+            background: #ddd;
+            cursor: pointer;
+        }
+        .lang-switch button.active {
+            background: #333;
+            color: white;
         }
 
         /* Hero Section */
@@ -55,16 +75,49 @@
             color: white;
             margin-top: 40px;
         }
+
+        /* Language visibility */
+        .zh { display: none; }
+        body.zh-mode .en { display: none; }
+        body.zh-mode .zh { display: block; }
     </style>
+
+    <script>
+        function switchLang(lang) {
+            if (lang === 'zh') {
+                document.body.classList.add('zh-mode');
+                document.getElementById('btn-zh').classList.add('active');
+                document.getElementById('btn-en').classList.remove('active');
+            } else {
+                document.body.classList.remove('zh-mode');
+                document.getElementById('btn-en').classList.add('active');
+                document.getElementById('btn-zh').classList.remove('active');
+            }
+        }
+    </script>
 </head>
 
 <body>
 
-<div class="hero">
+<!-- Language Switch -->
+<div class="lang-switch">
+    <button id="btn-en" class="active" onclick="switchLang('en')">EN</button>
+    <button id="btn-zh" onclick="switchLang('zh')">中文</button>
+</div>
+
+<!-- HERO -->
+<div class="hero en">
     <h1>YI HUI INTERNATIONAL CO., LTD.</h1>
     <p>Investment & Business Management Company Based in Taiwan</p>
 </div>
 
+<div class="hero zh">
+    <h1>怡暉國際有限公司</h1>
+    <p>台灣投資與企業管理顧問公司</p>
+</div>
+
+<!-- ENGLISH CONTENT -->
+<div class="en">
 <section>
     <h2>About Us</h2>
     <p>
@@ -95,6 +148,40 @@
     <h2>Contact Us</h2>
     <p><strong>Phone:</strong> +886 (02) 23621079</p>
 </section>
+</div>
+
+<!-- CHINESE CONTENT -->
+<div class="zh">
+<section>
+    <h2>關於我們</h2>
+    <p>
+        益暉國際股份有限公司為台灣合法登記之投資與企業管理顧問公司，提供企業策略規劃、
+        投資顧問、跨境商務拓展等服務，協助合作夥伴於亞洲市場成長。
+    </p>
+</section>
+
+<section>
+    <h2>服務項目</h2>
+    <ul>
+        <li>企業管理顧問</li>
+        <li>投資規劃與顧問服務</li>
+        <li>跨境商務拓展</li>
+        <li>企業策略支援</li>
+    </ul>
+</section>
+
+<section>
+    <h2>公司資訊</h2>
+    <p><strong>公司名稱：</strong>益暉國際股份有限公司</p>
+    <p><strong>統一編號：</strong>90761206</p>
+    <p><strong>地址：</strong>100054 台北市中正區重慶南路三段129號3樓</p>
+</section>
+
+<section>
+    <h2>聯絡我們</h2>
+    <p><strong>電話：</strong>+886 (02) 23621079</p>
+</section>
+</div>
 
 <footer>
     © YI HUI INTERNATIONAL CO., LTD. All rights reserved.
